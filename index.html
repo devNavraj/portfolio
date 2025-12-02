@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nawaraj Rai - AI/ML Engineer specializing in Generative AI, Computer Vision, and NLP. Masters student at Macquarie University with 1+ years of professional experience.">
+    <meta name="keywords" content="AI Engineer, Machine Learning, Deep Learning, Computer Vision, NLP, LLM, RAG, PyTorch, TensorFlow">
+    <meta name="author" content="Nawaraj Rai">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Nawaraj Rai - AI/ML Engineer">
+    <meta property="og:description" content="Specializing in Generative AI, Computer Vision, and NLP. Building intelligent systems from research to production.">
+    <meta property="og:url" content="https://nawarajrai.com">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nawaraj Rai - AI/ML Engineer">
+    <meta name="twitter:description" content="Specializing in Generative AI, Computer Vision, and NLP">
+
+    <title>Nawaraj Rai - AI/ML Engineer | Computer Vision & NLP Specialist</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome (Local) -->
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Nawaraj Rai",
+      "jobTitle": "AI/ML Engineer",
+      "url": "https://nawarajrai.com",
+      "sameAs": [
+        "https://github.com/devNavraj",
+        "https://linkedin.com/in/nawaraj-rai"
+      ],
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "Macquarie University"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "Kathmandu University"
+        }
+      ],
+      "knowsAbout": ["Artificial Intelligence", "Machine Learning", "Deep Learning", "Computer Vision", "Natural Language Processing", "Generative AI"]
+    }
+    </script>
+
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        .code-font { font-family: 'JetBrains Mono', monospace; }
+
+        :root {
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-gradient {
+            background: radial-gradient(ellipse at 50% 0%, rgba(102, 126, 234, 0.15) 0%, transparent 60%),
+                        radial-gradient(ellipse at 80% 50%, rgba(118, 75, 162, 0.1) 0%, transparent 50%),
+                        radial-gradient(ellipse at 20% 80%, rgba(79, 172, 254, 0.1) 0%, transparent 50%);
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(102, 126, 234, 0.25);
+        }
+
+        .skill-pill {
+            transition: all 0.2s ease;
+        }
+        .skill-pill:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: inherit;
+        }
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .timeline-line {
+            background: linear-gradient(to bottom, #667eea, #764ba2, #f093fb);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(102, 126, 234, 0.5);
+            border-radius: 50%;
+            animation: float-particle 15s infinite;
+        }
+        @keyframes float-particle {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translate(100px, -100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* Floating Cards Styles */
+        .hero-visual-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            height: 500px;
+            margin: 0 auto;
+        }
+
+        .visual-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: pulse-glow 4s ease-in-out infinite;
+        }
+
+        .glow-primary {
+            width: 300px;
+            height: 300px;
+            background: rgba(102, 126, 234, 0.3);
+            top: 10%;
+            left: 10%;
+        }
+
+        .glow-secondary {
+            width: 250px;
+            height: 250px;
+            background: rgba(118, 75, 162, 0.3);
+            bottom: 10%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        .hero-ai-image {
+            position: relative;
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+            filter: drop-shadow(0 20px 40px rgba(102, 126, 234, 0.3));
+            animation: float-ai 6s ease-in-out infinite;
+        }
+
+        @keyframes float-ai {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            animation: float-card 4s ease-in-out infinite;
+        }
+
+        .floating-card-1 {
+            top: 5%;
+            left: -5%;
+            width: 180px;
+            animation-delay: 0s;
+        }
+
+        .floating-card-2 {
+            top: 15%;
+            right: -5%;
+            width: 180px;
+            animation-delay: 1.5s;
+        }
+
+        .floating-card-3 {
+            bottom: 15%;
+            left: 5%;
+            width: 180px;
+            animation-delay: 3s;
+        }
+
+        @keyframes float-card {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
+        .floating-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .card-icon {
+            font-size: 1.5rem;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-label {
+            font-size: 0.75rem;
+            color: #a0aec0;
+            margin-bottom: 0.25rem;
+        }
+
+        .card-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #e2e8f0;
+        }
+
+
+        /* Mobile responsiveness for floating cards */
+        @media (max-width: 768px) {
+            .hero-visual-container {
+                height: 400px;
+                max-width: 100%;
+            }
+
+            .floating-card {
+                width: 140px !important;
+                padding: 0.75rem;
+                font-size: 0.85rem;
+            }
+
+            .floating-card-1 {
+                top: 0%;
+                left: -10%;
+            }
+
+            .floating-card-2 {
+                top: 10%;
+                right: -10%;
+            }
+
+            .floating-card-3 {
+                bottom: 10%;
+                left: 0%;
+            }
+
+            .card-icon {
+                font-size: 1.2rem;
+            }
+
+            .card-label {
+                font-size: 0.65rem;
+            }
+
+            .card-title {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-gray-100 overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="flex items-center justify-between h-16">
+                <a href="#home" class="text-xl font-bold gradient-text">NR</a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Home</a>
+                    <a href="#about" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">About</a>
+                    <a href="#projects" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Projects</a>
+                    <a href="#skills" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Skills</a>
+                    <a href="#experience" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Experience</a>
+                    <a href="#contact" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Contact</a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-xl border-t border-slate-800" style="position: absolute; top: 100%; left: 0; right: 0; z-index: 40;">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#home" class="block px-3 py-2 text-gray-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all">Home</a>
+                <a href="#about" class="block px-3 py-2 text-gray-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all">About</a>
+                <a href="#projects" class="block px-3 py-2 text-gray-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all">Projects</a>
+                <a href="#skills" class="block px-3 py-2 text-gray-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all">Skills</a>
+                <a href="#experience" class="block px-3 py-2 text-gray-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all">Experience</a>
+                <a href="#contact" class="block px-3 py-2 text-gray-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center hero-gradient relative overflow-hidden pt-16">
+        <!-- Animated Particles -->
+        <div id="particles" class="absolute inset-0 overflow-hidden pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Column: Text Content -->
+                <div class="text-center lg:text-left">
+                    <div class="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-full border border-slate-700/50">
+                        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                        <span class="text-sm text-gray-400">Open to opportunities</span>
+                    </div>
+
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
+                        <span class="text-gray-100">Hi, I'm </span>
+                        <span class="gradient-text">Nawaraj Rai</span>
+                    </h1>
+
+                    <div class="text-xl sm:text-2xl lg:text-3xl text-gray-400 mb-8 h-12">
+                        <span id="typed-text" class="typing-cursor"></span>
+                    </div>
+
+                    <p class="text-lg text-gray-400 max-w-3xl mx-auto lg:mx-0 mb-10 leading-relaxed">
+                        Specializing in <span class="text-indigo-400 font-medium">Generative AI</span>,
+                        <span class="text-purple-400 font-medium">Computer Vision</span>, and
+                        <span class="text-pink-400 font-medium">Natural Language Processing</span>.
+                        Building intelligent systems from research to production.
+                    </p>
+
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 mb-12">
+                        <a href="#projects" class="group px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full font-medium hover:shadow-xl hover:shadow-purple-500/25 transition-all flex items-center gap-2">
+                            View My Work
+                            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </a>
+                        <a href="assets/Resume_Nawaraj.pdf" download class="px-8 py-4 border border-slate-600 rounded-full font-medium hover:bg-slate-800 transition-all flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                            Download Resume
+                        </a>
+                    </div>
+
+                    <div class="flex justify-center lg:justify-start gap-6">
+                        <a href="https://github.com/devNavraj" target="_blank" class="p-3 bg-slate-800/50 rounded-xl hover:bg-slate-700/50 transition-colors group">
+                            <svg class="w-6 h-6 text-gray-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com/in/nawaraj-rai" target="_blank" class="p-3 bg-slate-800/50 rounded-xl hover:bg-slate-700/50 transition-colors group">
+                            <svg class="w-6 h-6 text-gray-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="mailto:nawarajrai37@gmail.com" class="p-3 bg-slate-800/50 rounded-xl hover:bg-slate-700/50 transition-colors group">
+                            <svg class="w-6 h-6 text-gray-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Floating Visual -->
+                <div class="hidden lg:block">
+                    <div class="hero-visual-container">
+                        <!-- Glow Effects -->
+                        <div class="visual-glow glow-primary"></div>
+                        <div class="visual-glow glow-secondary"></div>
+
+                        <!-- Hero AI Image -->
+                        <img src="assets/icons/hero-ai.png" alt="AI/ML Visualization" class="hero-ai-image">
+
+                        <!-- Floating Skill Cards -->
+                        <div class="floating-card floating-card-1">
+                            <i class="fas fa-database card-icon"></i>
+                            <div class="card-label">Oracle & MS SQL</div>
+                            <div class="card-title">Data Analytics</div>
+                        </div>
+
+                        <div class="floating-card floating-card-2">
+                            <i class="fas fa-code card-icon"></i>
+                            <div class="card-label">Java Spring Boot</div>
+                            <div class="card-title">Software Dev</div>
+                        </div>
+
+                        <div class="floating-card floating-card-3">
+                            <i class="fas fa-brain card-icon"></i>
+                            <div class="card-label">Deep Learning</div>
+                            <div class="card-title">AI Research</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 floating">
+            <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="reveal">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">About <span class="gradient-text">Me</span></h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">Building AI solutions that bridge research and production</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <p class="text-gray-300 text-lg leading-relaxed">
+                            I'm a highly motivated AI and Information Technology graduate student with a proven ability to architect and deploy complex systems.
+                            My expertise spans <span class="text-indigo-400 font-medium">LLM-powered applications</span>,
+                            <span class="text-purple-400 font-medium">automated data integration workflows</span>, and
+                            <span class="text-pink-400 font-medium">full-stack development</span>.
+                        </p>
+                        <p class="text-gray-300 text-lg leading-relaxed">
+                            Currently pursuing my <span class="text-indigo-400 font-medium">Master of Information Technology in Artificial Intelligence</span> at Macquarie University (WAM: 82.083),
+                            I combine over a year of professional experience in developing scalable backend systems and data pipelines with advanced academic training
+                            in Computer Vision, NLP, and Deep Learning.
+                        </p>
+                        <p class="text-gray-300 text-lg leading-relaxed">
+                            My work focuses on <span class="text-purple-400 font-medium">Generative AI</span>,
+                            <span class="text-pink-400 font-medium">prompt engineering</span>, and building intelligent automation solutions.
+                            From fine-tuning transformer models for emotion detection to deploying computer vision systems on physical robots,
+                            I bring a unique blend of theoretical knowledge and practical implementation skills.
+                        </p>
+
+                        <div class="flex flex-wrap gap-4 pt-4">
+                            <div class="flex items-center gap-2 text-gray-400">
+                                <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                                <span>Sydney, NSW</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-gray-400">
+                                <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                                <span>1+ Years Experience</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-2xl border border-slate-700/50 card-hover">
+                            <div class="text-4xl font-bold gradient-text mb-2">12+</div>
+                            <div class="text-gray-400">Projects</div>
+                        </div>
+                        <div class="p-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-2xl border border-slate-700/50 card-hover">
+                            <div class="text-4xl font-bold gradient-text mb-2">82%</div>
+                            <div class="text-gray-400">Current WAM</div>
+                        </div>
+                        <div class="p-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-2xl border border-slate-700/50 card-hover">
+                            <div class="text-4xl font-bold gradient-text mb-2">1.5+</div>
+                            <div class="text-gray-400">Years Experience</div>
+                        </div>
+                        <div class="p-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-2xl border border-slate-700/50 card-hover">
+                            <div class="text-4xl font-bold gradient-text mb-2">3.79</div>
+                            <div class="text-gray-400">Bachelor CGPA</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="reveal">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">Featured <span class="gradient-text">Projects</span></h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">From research prototypes to production-ready systems</p>
+                </div>
+
+                <!-- Featured Projects Grid -->
+                <div id="featuredProjectsGrid" class="grid lg:grid-cols-2 gap-8 mb-16">
+                    <!-- Projects will be dynamically loaded from config.js -->
+                </div>
+
+                <!-- Academic Projects -->
+                <div class="mb-16">
+                    <h3 class="text-2xl font-bold mb-8 text-center">Academic <span class="gradient-text">Excellence</span></h3>
+                    <div id="academicProjectsGrid" class="grid lg:grid-cols-2 gap-8">
+                        <!-- Projects will be dynamically loaded from config.js -->
+                    </div>
+                </div>
+
+                <!-- Notable Projects -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-8 text-center">Notable <span class="gradient-text">Projects</span></h3>
+                    <div id="notableProjectsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Projects will be dynamically loaded from config.js -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="reveal">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">Technical <span class="gradient-text">Skills</span></h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">Full-stack AI/ML expertise from research to deployment</p>
+                </div>
+
+                <div id="skillsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Skills will be dynamically loaded from config.js -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Education Section -->
+    <section id="experience" class="py-24 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="reveal">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">Experience & <span class="gradient-text">Education</span></h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">Professional journey and academic background</p>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 timeline-line transform md:-translate-x-1/2"></div>
+
+                    <div id="timelineContainer">
+                        <!-- Timeline will be dynamically loaded from config.js -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="reveal">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">Let's <span class="gradient-text">Connect</span></h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">Open to opportunities in AI/ML Engineering, Data Science, and Software Development</p>
+                </div>
+
+                <div class="max-w-3xl mx-auto">
+                    <div class="grid md:grid-cols-3 gap-6 mb-12">
+                        <a href="mailto:nawarajrai37@gmail.com" class="p-6 bg-slate-800/30 rounded-2xl border border-slate-700/50 card-hover text-center group">
+                            <div class="p-4 bg-indigo-500/20 rounded-xl inline-block mb-4 group-hover:bg-indigo-500/30 transition-colors">
+                                <svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-semibold mb-1">Email</h3>
+                            <p class="text-gray-400 text-sm break-all">nawarajrai37@gmail.com</p>
+                        </a>
+
+                        <a href="https://github.com/devNavraj" target="_blank" class="p-6 bg-slate-800/30 rounded-2xl border border-slate-700/50 card-hover text-center group">
+                            <div class="p-4 bg-purple-500/20 rounded-xl inline-block mb-4 group-hover:bg-purple-500/30 transition-colors">
+                                <svg class="w-8 h-8 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-semibold mb-1">GitHub</h3>
+                            <p class="text-gray-400 text-sm">@devNavraj</p>
+                        </a>
+
+                        <a href="https://linkedin.com/in/nawaraj-rai" target="_blank" class="p-6 bg-slate-800/30 rounded-2xl border border-slate-700/50 card-hover text-center group">
+                            <div class="p-4 bg-pink-500/20 rounded-xl inline-block mb-4 group-hover:bg-pink-500/30 transition-colors">
+                                <svg class="w-8 h-8 text-pink-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-semibold mb-1">LinkedIn</h3>
+                            <p class="text-gray-400 text-sm">Nawaraj Rai</p>
+                        </a>
+                    </div>
+
+                    <div class="text-center p-8 bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 rounded-2xl border border-slate-700/50">
+                        <div class="flex items-center justify-center gap-2 mb-4">
+                            <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <span class="text-gray-300">Based in Sydney, NSW, Australia</span>
+                        </div>
+                        <p class="text-gray-400 mb-6">I'm currently open to new opportunities and exciting projects. Whether you're looking for an AI/ML engineer or want to collaborate on research, I'd love to hear from you!</p>
+                        <a href="mailto:nawarajrai37@gmail.com" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full font-medium hover:shadow-xl hover:shadow-purple-500/25 transition-all">
+                            <span>Send me an Email</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="text-gray-400 text-sm">
+                    © 2024 Nawaraj Rai. Crafted with passion for AI.
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="https://github.com/devNavraj" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/in/nawaraj-rai" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:nawarajrai37@gmail.com" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/config.js"></script>
+
+    <script>
+        // ===================================
+        // Dynamic Content Loading from CONFIG
+        // ===================================
+
+        // Load Featured Projects
+        function loadFeaturedProjects() {
+            const container = document.getElementById('featuredProjectsGrid');
+            const colors = [
+                { from: 'indigo', to: 'purple', text: 'indigo' },
+                { from: 'cyan', to: 'blue', text: 'cyan' },
+                { from: 'green', to: 'emerald', text: 'green' },
+                { from: 'orange', to: 'red', text: 'orange' }
+            ];
+
+            CONFIG.featuredProjects.forEach((project, index) => {
+                const color = colors[index % colors.length];
+                const projectCard = `
+                    <div class="project-card relative p-6 bg-slate-800/30 rounded-2xl border border-slate-700/50 card-hover overflow-hidden">
+                        <div class="relative z-10">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="p-3 bg-gradient-to-br from-${color.from}-500/20 to-${color.to}-500/20 rounded-xl">
+                                    <svg class="w-8 h-8 text-${color.text}-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                    </svg>
+                                </div>
+                                <span class="px-3 py-1 bg-${color.from}-500/20 text-${color.from}-300 text-xs rounded-full">Featured</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-2">${project.title}</h3>
+                            <p class="text-gray-400 mb-6">${project.description}</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                ${project.tech.slice(0, 6).map(tech => `
+                                    <span class="px-2 py-1 bg-slate-700/50 rounded text-xs text-gray-300">${tech}</span>
+                                `).join('')}
+                            </div>
+                            <a href="${project.github}" target="_blank" class="inline-flex items-center gap-2 text-${color.text}-400 hover:text-${color.text}-300 transition-colors">
+                                <span>View on GitHub</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += projectCard;
+            });
+        }
+
+        // Load Academic Projects
+        function loadAcademicProjects() {
+            const container = document.getElementById('academicProjectsGrid');
+            const colors = [
+                { from: 'purple', to: 'pink', text: 'purple' },
+                { from: 'rose', to: 'red', text: 'rose' },
+                { from: 'blue', to: 'indigo', text: 'blue' },
+                { from: 'teal', to: 'cyan', text: 'teal' }
+            ];
+
+            CONFIG.academicProjects.forEach((project, index) => {
+                const color = colors[index % colors.length];
+                const projectCard = `
+                    <div class="project-card relative p-6 bg-slate-800/30 rounded-2xl border border-slate-700/50 card-hover overflow-hidden">
+                        <div class="relative z-10">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="p-3 bg-gradient-to-br from-${color.from}-500/20 to-${color.to}-500/20 rounded-xl">
+                                    <svg class="w-8 h-8 text-${color.text}-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                                    </svg>
+                                </div>
+                                <span class="px-3 py-1 bg-${color.from}-500/20 text-${color.from}-300 text-xs rounded-full">Academic</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">${project.title}</h3>
+                            <p class="text-gray-400 mb-6 text-sm">${project.description}</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                ${project.tech.slice(0, 5).map(tech => `
+                                    <span class="px-2 py-1 bg-slate-700/50 rounded text-xs text-gray-300">${tech}</span>
+                                `).join('')}
+                            </div>
+                            <a href="${project.github}" target="_blank" class="inline-flex items-center gap-2 text-${color.text}-400 hover:text-${color.text}-300 transition-colors text-sm">
+                                <span>View on GitHub</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += projectCard;
+            });
+        }
+
+        // Load Notable Projects
+        function loadNotableProjects() {
+            const container = document.getElementById('notableProjectsGrid');
+            const colors = ['indigo', 'purple', 'pink', 'cyan', 'orange'];
+
+            CONFIG.notableProjects.forEach((project, index) => {
+                const color = colors[index % colors.length];
+                const projectCard = `
+                    <a href="${project.github}" target="_blank" class="p-4 bg-slate-800/30 rounded-xl border border-slate-700/50 hover:bg-slate-700/30 transition-all group">
+                        <h4 class="font-semibold mb-1 group-hover:text-${color}-400 transition-colors">${project.title}</h4>
+                        <p class="text-xs text-gray-500 mb-3">${project.description.substring(0, 80)}...</p>
+                        <div class="flex flex-wrap gap-1">
+                            ${project.tech.slice(0, 3).map(tech => `
+                                <span class="px-2 py-0.5 bg-slate-700/50 rounded text-xs text-gray-400">${tech}</span>
+                            `).join('')}
+                        </div>
+                    </a>
+                `;
+                container.innerHTML += projectCard;
+            });
+        }
+
+        // Load Skills
+        function loadSkills() {
+            const container = document.getElementById('skillsGrid');
+            const icons = {
+                languages: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>',
+                aiFrameworks: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>',
+                aiConcepts: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>',
+                technologies: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>',
+                databases: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/>'
+            };
+            const colors = {
+                languages: 'indigo',
+                aiFrameworks: 'purple',
+                aiConcepts: 'pink',
+                technologies: 'green',
+                databases: 'orange'
+            };
+
+            Object.entries(CONFIG.skills).forEach(([key, skill]) => {
+                const color = colors[key];
+                const icon = icons[key];
+                const skillCard = `
+                    <div class="p-6 bg-slate-800/30 rounded-2xl border border-slate-700/50 card-hover">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="p-3 bg-${color}-500/20 rounded-xl">
+                                <svg class="w-6 h-6 text-${color}-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    ${icon}
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold">${skill.title}</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            ${skill.items.map(item => `
+                                <span class="skill-pill px-3 py-1.5 bg-slate-700/50 rounded-full text-sm text-gray-300">${item}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += skillCard;
+            });
+        }
+
+        // Load Timeline
+        function loadTimeline() {
+            const container = document.getElementById('timelineContainer');
+            const colors = ['indigo', 'purple', 'pink', 'cyan', 'orange', 'green'];
+
+            CONFIG.timeline.forEach((item, index) => {
+                const color = colors[index % colors.length];
+                const isLeft = index % 2 === 0;
+                const flexDir = isLeft ? 'md:flex-row' : 'md:flex-row-reverse';
+                const textAlign = isLeft ? 'md:text-right md:pr-12' : 'md:text-left md:pl-12';
+                const justifyEnd = isLeft ? 'md:justify-end' : '';
+                const ml = isLeft ? 'ml-8 md:ml-0' : 'ml-8 md:ml-0';
+
+                const orgDisplay = item.website
+                    ? `<a href="${item.website}" target="_blank" class="hover:text-${color}-300 transition-colors">${item.organization}</a>`
+                    : item.organization;
+
+                const timelineItem = `
+                    <div class="relative mb-12 md:mb-16">
+                        <div class="flex flex-col ${flexDir} items-start gap-8">
+                            <div class="md:w-1/2 ${textAlign}">
+                                <div class="p-6 bg-slate-800/30 rounded-2xl border border-slate-700/50 card-hover ${ml}">
+                                    <div class="flex ${justifyEnd} items-center gap-2 mb-2">
+                                        <span class="px-3 py-1 bg-${color}-500/20 text-${color}-300 text-xs rounded-full">${item.date}</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold mb-1">${item.title}</h3>
+                                    <p class="text-${color}-400 mb-4">${orgDisplay} • ${item.location}</p>
+                                    <ul class="text-gray-400 text-sm space-y-2 ${isLeft ? 'text-left md:text-right' : 'text-left'}">
+                                        ${item.description.map(desc => `<li>• ${desc}</li>`).join('')}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="absolute left-0 md:left-1/2 top-6 w-4 h-4 bg-${color}-500 rounded-full transform md:-translate-x-1/2 border-4 border-slate-950"></div>
+                            <div class="md:w-1/2"></div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += timelineItem;
+            });
+        }
+
+        // Initialize all dynamic content
+        document.addEventListener('DOMContentLoaded', () => {
+            loadFeaturedProjects();
+            loadAcademicProjects();
+            loadNotableProjects();
+            loadSkills();
+            loadTimeline();
+        });
+
+        // ===================================
+        // Typing Animation
+        // ===================================
+        const roles = [
+            'AI & Machine Learning Engineer',
+            'Full Stack Developer',
+            'NLP Specialist',
+            'Computer Vision Engineer',
+            'LLM & GenAI Developer'
+        ];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typedText = document.getElementById('typed-text');
+
+        function typeWriter() {
+            const currentRole = roles[roleIndex];
+
+            if (isDeleting) {
+                typedText.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typedText.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentRole.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(typeWriter, typeSpeed);
+        }
+        typeWriter();
+
+        // ===================================
+        // Scroll Reveal Animation
+        // ===================================
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const revealTop = reveal.getBoundingClientRect().top;
+                const revealPoint = 150;
+
+                if (revealTop < windowHeight - revealPoint) {
+                    reveal.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // ===================================
+        // Mobile Menu Toggle
+        // ===================================
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // ===================================
+        // Navbar Scroll Effect
+        // ===================================
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+
+        // ===================================
+        // Particle Animation
+        // ===================================
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        createParticles();
+
+        // ===================================
+        // Smooth Scroll for Anchor Links
+        // ===================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>

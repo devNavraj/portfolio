@@ -1,0 +1,13 @@
+# robots.txt for Nawaraj Rai Portfolio
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://nawarajrai.com/sitemap.xml
+
+# Block access to specific directories (if needed)
+Disallow: /assets/Resume_Nawaraj.pdf
+
+# Crawl-delay (optional, in seconds)
+Crawl-delay: 0

@@ -1,0 +1,30 @@
+{
+  "name": "nawaraj-rai-portfolio",
+  "version": "1.0.0",
+  "description": "Modern portfolio website showcasing AI/ML expertise in Computer Vision, NLP, and Generative AI",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server -p 8000 -c-1 -o",
+    "start": "npm run dev",
+    "serve": "npx http-server -p 8000 -c-1",
+    "preview": "npx live-server --port=8000 --no-browser",
+    "open": "start http://localhost:8000"
+  },
+  "keywords": [
+    "portfolio",
+    "ai",
+    "ml",
+    "computer-vision",
+    "nlp",
+    "generative-ai",
+    "deep-learning"
+  ],
+  "author": "Nawaraj Rai <nawarajrai37@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devNavraj/portfolio-website.git"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}
